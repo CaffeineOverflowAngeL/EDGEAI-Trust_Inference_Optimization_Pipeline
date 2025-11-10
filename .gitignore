@@ -1,0 +1,17 @@
+edgeai_venv
+__pycache__/
+*.pyc
+.DS_Store
+.vscode/
+.idea/
+.env
+.env.*
+.ipynb_checkpoints/
+data/
+logs/
+model/
+Buyutech_Model_Tests_v0.1
+benchmark_stable.py
+benchmark_v2.py
+install_tvm.txt
+run.py
