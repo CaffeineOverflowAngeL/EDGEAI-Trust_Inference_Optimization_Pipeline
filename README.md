@@ -3,7 +3,7 @@
 <div align="center">
 <img src="assets/edgeai_trust_logo.webp" width="420px"></img>
 <h2></h2>
-<img src="assets/edge_infpipeline_diagram.png" width="65%">
+<img src="assets/edgeai_infpipeline_diagram.png" width="65%">
 <h2></h2>
 </div>
 
