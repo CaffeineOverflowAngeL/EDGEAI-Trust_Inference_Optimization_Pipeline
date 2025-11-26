@@ -140,10 +140,10 @@ python benchmark.py --opset 17
 
 ---
 
-# 🏗 Benchmark Architecture
+# ⚙️ Benchmark Architecture
 
 <div align="center">
-<img src="assets/placeholder_architecture.png" width="80%">
+<img src="assets/edgeai_infpipeline_diagram.png" width="80%">
 </div>
 
 ## Model Normalization
@@ -233,7 +233,7 @@ TensorRT (FP16)        |      0.28    |  11.46× |  42.51
 
 ---
 
-# 🐛 Troubleshooting
+# 🔧 Troubleshooting
 
 ### TensorRT ParseError
 - Ensure ONNX opset ≤ TensorRT version  
