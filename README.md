@@ -3,7 +3,7 @@
 <div align="center">
 <img src="assets/edgeai_trust_logo.webp" width="420px"></img>
 <h2></h2>
-<img src="assets/placeholder_intro.png" width="65%">
+<img src="assets/edge_infpipeline_diagram.png" width="65%">
 <h2></h2>
 </div>
 
@@ -80,7 +80,7 @@ The **EDGEAI-Trust Inference Optimization Pipeline** is a unified benchmarking a
 Clone the repository:
 
 ```bash
-git clone https://github.com/<your_repo>/EDGEAI-Trust-Inference-Optimization.git
+git clone https://github.com/CaffeineOverflowAngeL/EDGEAI-Trust-Inference-Optimization.git
 cd EDGEAI-Trust-Inference-Optimization
 ```
 
