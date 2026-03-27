@@ -3,7 +3,7 @@ import tvm
 import numpy as np
 from tvm import relax
 
-print("🧩 TVM Diagnostic Check")
+print("TVM Diagnostic Check")
 print("---------------------------")
 print("TVM version:", tvm.__version__)
 print("Available targets:", tvm.target.Target.list_kinds())
