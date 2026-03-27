@@ -27,7 +27,7 @@ Supported backends:
 
 ---
 
-# 🧩 Repository Structure
+# Repository Structure
 
 The project is split into two independent components:
 
