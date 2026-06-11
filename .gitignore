@@ -11,6 +11,7 @@ data/
 logs/
 model/
 Buyutech_Model_Tests_v0.1
+build_out/
 benchmark_stable.py
 benchmark_v2.py
 install_tvm.txt

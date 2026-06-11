@@ -13,7 +13,6 @@ from .io_utils import file_size_mb, now_ts
 
 try:
     import pycuda.driver as cuda  # type: ignore
-    import pycuda.autoinit  # noqa: F401  # type: ignore
     PYCUDA_AVAILABLE = True
 except Exception:
     PYCUDA_AVAILABLE = False
@@ -44,12 +43,14 @@ def collect_system_info() -> Dict[str, Any]:
 
     if PYCUDA_AVAILABLE:
         try:
-            dev = cuda.Context.get_device()
-            info["cuda_device"] = {
-                "name": dev.name(),
-                "compute_capability": dev.compute_capability(),
-                "total_memory_mb": int(dev.total_memory() / (1024 * 1024)),
-            }
+            context = cuda.Context.get_current()
+            if context is not None:
+                dev = context.get_device()
+                info["cuda_device"] = {
+                    "name": dev.name(),
+                    "compute_capability": dev.compute_capability(),
+                    "total_memory_mb": int(dev.total_memory() / (1024 * 1024)),
+                }
         except Exception:
             info["cuda_device"] = "unavailable"
 

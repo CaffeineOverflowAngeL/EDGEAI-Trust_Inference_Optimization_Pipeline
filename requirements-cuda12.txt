@@ -1,0 +1,6 @@
+# Optional TensorRT dependencies for CUDA 12 targets.
+# Install PyCUDA separately after configuring the target CUDA toolkit.
+-r requirements.txt
+tensorrt-cu12==10.14.1.48.post1
+Mako==1.3.12
+pytools==2026.1.1

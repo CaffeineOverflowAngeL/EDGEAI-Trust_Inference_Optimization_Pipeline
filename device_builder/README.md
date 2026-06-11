@@ -53,3 +53,4 @@ python scripts/build_model.py \
   --sample-input input.npy \
   --sample-output output.npy \
   --benchmark
+```

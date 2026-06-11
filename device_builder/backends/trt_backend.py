@@ -18,7 +18,6 @@ except Exception as e:
 
 try:
     import pycuda.driver as cuda  # type: ignore
-    import pycuda.autoinit  # noqa: F401  # type: ignore
     PYCUDA_AVAILABLE = True
 except Exception as e:
     PYCUDA_AVAILABLE = False
@@ -34,6 +33,15 @@ class TrtBuildArtifacts:
     dynamic: bool
     workspace_mb: int
     benchmark: Optional[Dict[str, Any]] = None
+
+
+def _ensure_pycuda_context() -> None:
+    if not PYCUDA_AVAILABLE:
+        raise RuntimeError(f"pycuda not available: {PYCUDA_IMPORT_ERROR}")
+
+    # Delay CUDA initialization so CLI help and CPU-only presets work without
+    # an accessible GPU, even when PyCUDA is installed.
+    import pycuda.autoinit  # noqa: F401  # type: ignore
 
 
 def trt_dtype_nptype(dtype: Any) -> np.dtype:
@@ -161,6 +169,8 @@ def build_trt_engine(
         raise RuntimeError(f"TensorRT not available: {TRT_IMPORT_ERROR}")
     if not PYCUDA_AVAILABLE:
         raise RuntimeError(f"pycuda not available: {PYCUDA_IMPORT_ERROR}")
+
+    _ensure_pycuda_context()
 
     logger = trt.Logger(trt.Logger.WARNING)
     builder, network, _ = parse_trt_network_from_onnx(onnx_path, logger)
@@ -315,6 +325,8 @@ def prepare_trt_runner(
 ) -> Callable[[], List[np.ndarray]]:
     if not TRT_AVAILABLE or not PYCUDA_AVAILABLE:
         raise RuntimeError("TensorRT and pycuda are required")
+
+    _ensure_pycuda_context()
 
     engine = load_trt_engine(engine_path)
     context = engine.create_execution_context()
